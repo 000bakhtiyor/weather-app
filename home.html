@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block title %}Weather App{% endblock %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+    <form method="POST" action="">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="city-name" placeholder="Shahar nomini kiriting..." aria-label="Shahar nomini kiriting..." aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit">Qidirish</button>
+            </div>
+          </div>
+    </form>
+  <div class="container py-5 h-80">
+  {% if data %}
+    {% if data.error %}
+      <h3>Shahar topilmadi.</h3>
+    {% else %}
+      {% include "card.html"%}
+    {% endif %}
+  {% else %}
+      <h3>Shaharni kiriting!</h3>
+  {%endif%}
+  </div>
+
+{% endblock %}
